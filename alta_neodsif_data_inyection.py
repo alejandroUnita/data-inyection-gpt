@@ -143,8 +143,8 @@ def fill_form():
         # Llenar formulario BasicDataForm
         fill_text_field("numeroFactura", data["numeroFactura"])
         tipo_factura = select_option("tipoFactura", data["tipoFactura"])
-        fill_text_field("fechaEmision", data["fechaEmision"])
-        fill_text_field("fechaOperacion", data["fechaOperacion"])
+        driver.find_element(By.ID, "fechaEmision").send_keys(fecha_hoy)
+        driver.find_element(By.ID, "fechaOperacion").send_keys(fecha_hoy)
 
         # Llenar formulario EmisorForm
         fill_text_field("emisorNombre", data["emisorNombre"])
@@ -172,7 +172,7 @@ def fill_form():
             if rectificativa_element:
                 select_option("tipoRectificativa", data["tipoRectificativa"])
                 fill_text_field("numeroFacturaRectificativa", data["numeroFacturaRectificativa"])
-                fill_text_field("fechaEmisionRectificativa", data["fechaEmisionRectificativa"])
+                driver.find_element(By.ID, "fechaemisionrectificativa").send_keys(fecha_hoy)
                 select_option("motivo-rectificacion", data["motivo-rectificacion"])
                 select_option("motivo-correccion", data["motivo-correccion"])
 
